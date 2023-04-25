@@ -18,7 +18,7 @@ View this analysis here as an article.
 ## Introduction
 I love listening to Taylor Swift and I know many others do, seeing as how she is one of the most popular musicians in the world. I wanted to know what sort of factors influenced Taylor Swift’s popularity, and more specifically which of Taylor Swift’s albums are more popular than one another and why. Spotify offers data for artists that are on their platform and statistics that relate to the sonic qualities of the songs that these artists release. Using multiple data sets on Kaggle that feature these Spotify statistics for Taylor Swift’s songs I decided to try and use my data analysis skills to find out if any of the sonic qualities of Taylor Swift’s songs lead to more popularity for her different albums. I performed this data analysis on Taylor Swift’s Spotify data following a common data analysis roadmap of ask, prepare, process, analysis, share, and act. 
 
-The sonic qualities that I am referring to are… 
+The sonic qualities that I am referring to are:
 
 **Acousticness**: A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic.
 
