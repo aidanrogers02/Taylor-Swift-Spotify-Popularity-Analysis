@@ -1,0 +1,318 @@
+---
+title: "Google_Capstone_Cyclistic"
+author: "Aidan Rogers"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+### Divvy_Exercise_Full_Year_Analysis ###
+
+# # # # # # # # # # # # # # # # # # # # # # # 
+# Install required packages
+# tidyverse for data import and wrangling
+# lubridate for date functions
+# ggplot for visualization
+# # # # # # # # # # # # # # # # # # # # # # #  
+
+library(tidyverse)  #helps wrangle data
+library(lubridate)  #helps wrangle date attributes
+library(ggplot2)  #helps visualize data
+install.packages("ggrepel")
+library(ggrepel)
+getwd() #displays your working directory
+setwd("/Users/aidan/Desktop/TaylorSwiftDA") #sets your working directory to simplify calls to data ... make sure to use your OWN username instead of mine ;)
+
+theme_set(theme_bw())
+
+#=====================
+# STEP 1: COLLECT DATA
+#=====================
+# Upload Divvy datasets (csv files) here
+taylor_data <- read_csv("spotify_taylorswift_excel_no_outlier.csv")
+
+#====================================================
+# STEP 2: WRANGLE DATA AND COMBINE INTO A SINGLE FILE
+#====================================================
+# Compare column names each of the files
+# While the names don't have to be in the same order, they DO need to match perfectly before we can use a command to join them into one file
+colnames(taylor_data)
+
+# Rename columns  to make them consistent with q1_2020 (as this will be the supposed going-forward table design for Divvy)
+
+(taylor_data <- rename(taylor_data
+                   ,id = ID
+                   ,track_number = `Track Number`
+                   ,name = Name
+                   ,album = Album
+                   ,artist = Artist
+                   ,release_date = `Release Date`
+                   ,length = Length
+                   ,popularity = Popularity
+                   ,danceability = Danceability
+                   ,acousticness = Acousticness
+                   ,energy = Energy
+                   ,instrumentalness = Instrumentalness
+                   ,liveness = Liveness
+                   ,loudness = Loudness
+                   ,speechiness = Speechiness
+                   ,valence = Valence
+                   ,tempo = Tempo))
+
+# Inspect the dataframes and look for incongruencies
+str(taylor_data)
+
+
+#======================================================
+# STEP 3: CLEAN UP AND ADD DATA TO PREPARE FOR ANALYSIS
+#======================================================
+# Inspect the new table that has been created
+colnames(taylor_data)  #List of column names
+nrow(taylor_data)  #How many rows are in data frame?
+dim(taylor_data)  #Dimensions of the data frame?
+head(taylor_data)  #See the first 6 rows of data frame.  Also tail(all_trips)
+str(taylor_data)  #See list of columns and data types (numeric, character, etc)
+summary(taylor_data)  #Statistical summary of data. Mainly for numerics
+
+
+table(taylor_data$album)
+
+
+# Add columns that list the date, month, day, and year of each song
+taylor_data$month <- format(as.Date(taylor_data$release_date), "%m")
+taylor_data$day <- format(as.Date(taylor_data$release_date), "%d")
+taylor_data$year <- format(as.Date(taylor_data$release_date), "%Y")
+taylor_data$day_of_week <- format(as.Date(taylor_data$release_date), "%A")
+
+
+# Inspect the structure of the columns
+str(taylor_data)
+
+# See how many songs Taylor released in each month and year
+table(taylor_data$month)
+table(taylor_data$year)
+
+
+
+#=====================================
+# STEP 4: CONDUCT DESCRIPTIVE ANALYSIS
+#=====================================
+
+# Put albums in order of release date
+taylor_data$album <- ordered(taylor_data$album, levels=c("Taylor Swift", "Fearless (Platinum Edition)", "Speak Now (Deluxe Package)", "Red (Deluxe Edition)", "1989 (Deluxe)", "reputation", "Lover", "folklore (deluxe version)", "evermore (deluxe version)", "Fearless (Taylor's Version)", 
+"Red (Taylor's Version)", "Midnights (3am Edition)"))
+
+# Descriptive analysis on ride_length (all figures in seconds)
+mean(taylor_data$popularity) #straight average (total ride length / rides)
+median(taylor_data$popularity) #midpoint number in the ascending array of ride lengths
+max(taylor_data$popularity) #longest ride
+min(taylor_data$popularity) #shortest ride
+
+# You can condense the four lines above to one line using summary() on the specific attribute
+summary(taylor_data$popularity)
+summary(taylor_data$loudness)
+
+
+# Compare popularity for albums
+aggregate(taylor_data$popularity ~ taylor_data$album, FUN = mean)
+aggregate(taylor_data$popularity ~ taylor_data$album, FUN = median)
+aggregate(taylor_data$popularity ~ taylor_data$album, FUN = max)
+aggregate(taylor_data$popularity ~ taylor_data$album, FUN = min)
+
+# Compare acousticness for albums
+aggregate(taylor_data$acousticness ~ taylor_data$album, FUN = mean)
+aggregate(taylor_data$acousticness ~ taylor_data$album, FUN = median)
+aggregate(taylor_data$acousticness ~ taylor_data$album, FUN = max)
+aggregate(taylor_data$acousticness ~ taylor_data$album, FUN = min)
+
+
+# See what month each album was released and it's average level of popularity
+aggregate(taylor_data$popularity ~ taylor_data$album + taylor_data$month, FUN = mean)
+
+# Create a visualization for average popularity
+taylor_data %>% 
+  group_by(album) %>% 
+  summarise(numer_of_songs = n(), average_popularity = mean(popularity)) %>% 
+  arrange(album)  %>% 
+  ggplot(aes(x = album, y = average_popularity, fill=album), title="Album Time") +
+  geom_col(position = "dodge") + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+  labs(x="Album Name", y= "Average Popularity",
+       title="Taylor Swift: Average Popularity of Albums") 
+  
+# Create a visualization for average tempo
+taylor_data %>% 
+  group_by(album) %>% 
+  summarise(numer_of_songs = n(), average_tempo = mean(tempo)) %>% 
+  arrange(album)  %>% 
+  ggplot(aes(x = album, y = average_tempo, fill=album), title="Album Time") +
+  geom_col(position = "dodge") + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+  labs(x="Album Name", y= " Average Tempo",
+       title="Taylor Swift: Average Tempo of Albums")
+       
+       
+
+# Create a Scatter Plot for Popularity vs Length
+taylor_data %>%
+  ggplot(aes(x = popularity, y = length)) +
+  geom_point(alpha=.8, aes(color=album)) +
+  labs(x="Popularity", y= "Length",
+       title="Popularity vs Length") +
+  theme_bw(base_size = 10) +
+  geom_smooth(method=lm,se=FALSE)
+  
+# Create a Scatter Plot for Popularity vs Danceability
+taylor_data %>%
+  ggplot(aes(x = popularity, y = danceability)) +
+  geom_point(alpha=.8, aes(color=album)) +
+  labs(x="Popularity", y= "Danceability",
+       title="Popularity vs Danceability") +
+  theme_bw(base_size = 10) +
+  geom_smooth(method=lm,se=FALSE)
+  
+# Create a Scatter Plot for Popularity vs Acousticness
+taylor_data %>%
+  ggplot(aes(x = popularity, y = acousticness)) +
+  geom_point(alpha=.8, aes(color=album)) +
+  labs(x="Popularity", y= "Acousticness",
+       title="Popularity vs Acousticness") +
+  theme_bw(base_size = 10) +
+  geom_smooth(method=lm,se=FALSE)
+  
+# Create a Scatter Plot for Popularity vs Energy
+taylor_data %>%
+  ggplot(aes(x = popularity, y = energy)) +
+  geom_point(alpha=.8, aes(color=album)) +
+  labs(x="Popularity", y= "Energy",
+       title="Popularity vs Energy") +
+  theme_bw(base_size = 10) +
+  geom_smooth(method=lm,se=FALSE)
+  
+# Create a Scatter Plot for Popularity vs Intrumentalness
+taylor_data %>%
+  ggplot(aes(x = popularity, y = instrumentalness)) +
+  geom_point(alpha=.8, aes(color=album)) +
+  labs(x="Popularity", y= "Instrumentalness",
+       title="Popularity vs Instrumentalness") +
+  theme_bw(base_size = 10) +
+  geom_smooth(method=lm,se=FALSE) 
+  
+# Create a Scatter Plot for Popularity vs Liveness
+taylor_data %>%
+  ggplot(aes(x = popularity, y = liveness)) +
+  geom_point(alpha=.8, aes(color=album)) +
+  labs(x="Popularity", y= "Liveness",
+       title="Popularity vs Liveness") +
+  theme_bw(base_size = 10) +
+  geom_smooth(method=lm,se=FALSE)  
+
+# Create a Scatter Plot for Popularity vs Loudness
+taylor_data %>%
+  ggplot(aes(x = popularity, y = loudness)) +
+  geom_point(alpha=.8, aes(color=album)) +
+  labs(x="Popularity", y= "Loudness",
+       title="Popularity vs Loudness") +
+  theme_bw(base_size = 10) +
+  geom_smooth(method=lm,se=FALSE) 
+  
+# Create a Scatter Plot for Popularity vs Speechiness
+taylor_data %>%
+  ggplot(aes(x = popularity, y = speechiness)) +
+  geom_point(alpha=.8, aes(color=album)) +
+  labs(x="Popularity", y= "Speechiness",
+       title="Popularity vs Speechiness") +
+  theme_bw(base_size = 10) +
+  geom_smooth(method=lm,se=FALSE) 
+  
+# Create a Scatter Plot for Popularity vs Valence
+taylor_data %>%
+  ggplot(aes(x = popularity, y = valence)) +
+  geom_point(alpha=.8, aes(color=album)) +
+  labs(x="Popularity", y= "Valence",
+       title="Popularity vs Valence") +
+  theme_bw(base_size = 10) +
+  geom_smooth(method=lm,se=FALSE) 
+  
+# Create a Scatter Plot for Popularity vs Tempo
+taylor_data %>%
+  ggplot(aes(x = popularity, y = tempo)) +
+  geom_point(alpha=.8, aes(color=album)) +
+  labs(x="Popularity", y= "Tempo",
+       title="Popularity vs Tempo") +
+  theme_bw(base_size = 10) +
+  geom_smooth(method=lm,se=FALSE)
+  
+  
+  
+# Scatter Plot to show Release Date vs Popularity
+taylor_data %>%
+  ggplot(aes(x = release_date, y = popularity)) +
+  geom_point(alpha=.8, aes(color=album)) +
+  labs(x="Release Date", y= "Popularity",
+       title="Release Date vs Popularity") +
+  theme_bw(base_size = 10) +
+  geom_smooth(method=lm,se=FALSE) +
+  scale_y_log10() 
+
+# Same Scatter plot of Popularity vs Danceability but with some data labels
+taylor_data %>%
+  ggplot(aes(x = popularity, y = danceability)) +
+  geom_point(alpha=.8, aes(color=album)) +
+  labs(x="Popularity", y= "Danceability",
+       title="Popularity vs Danceability") +
+  theme_bw(base_size = 10) +
+  geom_smooth(method=lm,se=FALSE) +
+  ggrepel::geom_text_repel(data = taylor_data %>%
+                              filter(danceability< 0.32 | danceability > 0.83) %>%
+                              sample(20),
+                              aes(label=name))
+
+# Same Scatter plot of Popularity vs Danceability but faceted to show each album
+taylor_data %>%
+  ggplot(aes(x = popularity, y = danceability)) +
+  geom_point(alpha=.8, aes(color=album)) +
+  labs(x="Popularity", y= "Danceability",
+       title="Popularity vs Danceability") +
+  theme_bw(base_size = 10) +
+  geom_smooth(method=lm,se=FALSE) +
+  scale_x_log10() +
+  facet_wrap(~album, ncol=3)  
+  
+# Create a Scatter Plot for energy vs acousticness
+taylor_data %>%
+  ggplot(aes(x = energy, y = acousticness)) +
+  geom_point(alpha=.8, aes(color=album)) +
+  labs(x="Energy", y= "Acousticness",
+       title="Energy vs Acousticness") +
+  theme_bw(base_size = 10) +
+  geom_smooth(method=lm,se=FALSE) +
+  scale_x_log10() 
+  
+# Faceted Scatter plot to experiment with
+taylor_data %>%
+  ggplot(aes(x = popularity, y = danceability)) +
+  geom_point(alpha=.8, aes(color=album)) +
+  labs(x="Popularity", y= "Danceability",
+       title="Popularity vs Danceability") +
+  theme_bw(base_size = 10) +
+  geom_smooth(method=lm,se=FALSE) +
+  scale_x_log10() +
+  facet_wrap(~album, ncol=3)  
+  
+
+#=================================================
+# STEP 5: EXPORT SUMMARY FILE FOR FURTHER ANALYSIS
+#=================================================
+# Create a csv file that we will visualize in Excel, Tableau, or my presentation software
+# N.B.: This file location is for a Mac. If you are working on a PC, change the file location accordingly (most likely "C:\Users\YOUR_USERNAME\Desktop\...") to export the data. You can read more here: https://datatofish.com/export-dataframe-to-csv-in-r/
+counts <- aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual + all_trips_v2$day_of_week, FUN = mean)
+write.csv(counts, file = '/Users/aidan/Desktop/Google_Data_Capstone/avg_ride_length.csv')
+
+#You're done! Congratulations!
+
