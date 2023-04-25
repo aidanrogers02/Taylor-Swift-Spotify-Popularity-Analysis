@@ -98,7 +98,7 @@ For my analysis to find how the sonic qualities quantified by Spotify impacted t
 
 I started with some exploratory analysis of the Taylor Swift data in Excel to find some trends when it came to popularity. I wanted to see where I should look to find what influences the popularity of her albums. A quick exploratory analysis of a data set gives you an idea of where to go next to reach the answer to your initial guided questions, and it gives you time to get more comfortable with the data. 
 
-#### Average Popularity Per Album
+#### **Average Popularity Per Album**
 
 I first started this exploration by plotting the popularity of Taylor’s albums and putting them in the order of release date. I found this measure of popularity by averaging out the popularity of every song in each album.
 
