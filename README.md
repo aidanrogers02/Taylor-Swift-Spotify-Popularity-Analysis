@@ -5,7 +5,7 @@
 View this analysis here as an article.
 
 ## Table of Contents
-* Introduction
+* [Introduction](https://github.com/aidanrogers02/Taylor-Swift-Spotify-Popularity-Analysis/blob/main/README.md#introduction)
 * Ask
 * Prepare
 * Process
@@ -242,3 +242,8 @@ To wrap up the analysis of Taylor Swift’s Spotify data I will end with a remin
 Kaggle dataset 1
 Kaggle dataset 2
 Spotify definitions
+
+## Important files
+R code file: 
+SQL code file: 
+Tableau file: 
