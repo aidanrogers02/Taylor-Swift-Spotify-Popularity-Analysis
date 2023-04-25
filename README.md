@@ -118,25 +118,25 @@ With this query we find that Midnights, Taylor’s most recent release, has the 
 
 Let’s look further into that 0 popularity song that showed up on 1989 to see if there is some mistake with the data or simply an outlier we should keep in mind.
 
-[SQL 0 popularity songs]
+![SQL 0 popularity songs](/charts_graphs/0_popularity_songs.PNG)
 
 When we query for all songs in Taylor’s discography that have a popularity of 0 we find that every one of these songs is a voice memo that is featured on the “deluxe” version of 1989. Seeing as how all of the voice memos have a popularity of 0 it seems as if the data is likely correct but an outlier we should look out for.
 
-[SQL least popular song on each album order by release_date w/o 0]
+![SQL least popular song on each album order by release_date w/o 0](/charts_graphs/min_pop_album_no_0.PNG)
 
 When we look at the minimum popularity song on each album once again this result seems much more in line with where the least popular song on 1989 would be.
 
-[SQL median and average popularity of songs w/o 0 pop]
+![SQL median and average popularity of songs w/o 0 pop](/charts_graphs/median_and_avg_pop.PNG)
 
 And when we look at this table of the median and average popularity of each album in Taylor’s catalog, once we have taken the 0 popularity songs out, the average and median are nearly the same which indicates fewer outliers. As we can see, taking out the voice memos from our analysis seems to put 1989’s popularity more in line with where it should be, so we will exclude those songs from the rest of this analysis.
 
 Now let us look a little further at the 10 most popular and 10 least popular songs in Taylor Swift’s catalog to get an idea of the songs in these extremes on either side.
 
-[SQL 10 most popular]
+![SQL 10 most popular](/charts_graphs/top_10_pop_songs.PNG)
 
-Across the 10 most popular songs only 5 albums make an appearance: 1989, Lover, Red (Taylor’s Version), reputation, and Midnights. 1989 holds down the most popular song while Lover covers 4 spots in the top 10.
+Across the 10 most popular songs only 5 albums make an appearance: 1989, Lover, Red (Taylor’s Version), reputation, and Midnights. 1989 holds down the most popular song, with Blank Space, while Lover covers 4 spots in the top 10.
 
-[SQL 10 least popular]
+![SQL 10 least popular](/charts_graphs/10_least_pop.PNG)
 
 Looking at the 10 least popular songs in Taylor’s discography we see a very apparent trend that her second album, Fearless (Platinum Edition), features all 10 of her least popular songs. We can clearly see why the original Fearless comes in last in popularity by a decent margin.
 
