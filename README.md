@@ -2,7 +2,7 @@
 ###### By: Aidan Rogers
 ###### Date: 4/25/2023
 
-![Evermore Pictures](/charts_graphs/Evermore.png)
+![Evermore Pictures](/charts_graphs/Petrusich-TaylorSwift.webp)
 
 View this analysis here as an article.
 
