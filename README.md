@@ -274,10 +274,14 @@ To wrap up the analysis of Taylor Swift’s Spotify data I will end with a remin
 
 ## References
 [Kaggle Dataset 1](https://www.kaggle.com/datasets/thespacefreak/taylor-swift-spotify-data)
+
 [Kaggle Dataset 2](https://www.kaggle.com/datasets/jarredpriester/taylor-swift-spotify-dataset?select=taylor_swift_spotify.csv)
+
 [Spotify Definitions](https://developer.spotify.com/documentation/web-api/reference/get-several-audio-features)
 
 ## Important files
 [R code file](https://github.com/aidanrogers02/Taylor-Swift-Spotify-Popularity-Analysis/blob/main/Taylor_Swift_RMD.Rmd)
+
 [SQL code file](https://github.com/aidanrogers02/Taylor-Swift-Spotify-Popularity-Analysis/blob/main/sql_taylor_swift.sql)
+
 [Tableau file](taylor_swift_analysis.twb) 
