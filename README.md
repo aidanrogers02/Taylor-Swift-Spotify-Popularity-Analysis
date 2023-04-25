@@ -7,6 +7,7 @@ View this analysis here as an article.
 ## Table of Contents
 * [Introduction](https://github.com/aidanrogers02/Taylor-Swift-Spotify-Popularity-Analysis/blob/main/README.md#introduction)
 * [Ask](https://github.com/aidanrogers02/Taylor-Swift-Spotify-Popularity-Analysis/blob/main/README.md#ask)
+  * Hi
 * [Prepare](https://github.com/aidanrogers02/Taylor-Swift-Spotify-Popularity-Analysis/blob/main/README.md#prepare)
 * [Process](https://github.com/aidanrogers02/Taylor-Swift-Spotify-Popularity-Analysis/blob/main/README.md#process)
 * [Analyze](https://github.com/aidanrogers02/Taylor-Swift-Spotify-Popularity-Analysis/blob/main/README.md#analyze)
