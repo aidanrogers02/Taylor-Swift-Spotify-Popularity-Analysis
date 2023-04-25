@@ -252,11 +252,11 @@ With this analysis we can see that Taylor Swift has built a place for herself as
 ## Share 
 With all of the preparation and analysis complete I put a brief summary of my key findings into a PowerPoint to make the results easily presentable. This way I could more quickly and easily communicate the results I had to any interested parties. You can find the link to the PowerPoint below.
 
-PowerPoint Link: https://drive.google.com/file/d/1gnRda8p8otkFVySlm9vDFtNCEACyHW2I/view?usp=sharing
+[PowerPoint Link](https://drive.google.com/file/d/1gnRda8p8otkFVySlm9vDFtNCEACyHW2I/view?usp=sharing)
 
 Along with the PowerPoint I created a Tableau Dashboard as another summary of the data I found, but this one is interactive if the user wants to dig deeper into the results I found.
 
-Tableau Link: https://public.tableau.com/app/profile/aidanrogers02/viz/TaylorSwiftPopularityDataAnalysis/TaylorSwiftAlbumAnalysis3
+[Tableau Link](https://public.tableau.com/app/profile/aidanrogers02/viz/TaylorSwiftPopularityDataAnalysis/TaylorSwiftAlbumAnalysis3)
 
 ## Act 
 To wrap up the analysis of Taylor Swift’s Spotify data I will end with a reminder of the key findings of our analysis and steps that I could take moving forward to learn even more.
@@ -273,11 +273,11 @@ To wrap up the analysis of Taylor Swift’s Spotify data I will end with a remin
 * Look further into popularity trends across Taylor Swift’s career
 
 ## References
-Kaggle Dataset 1: 
-Kaggle Dataset 2: 
-Spotify Definitions
+[Kaggle Dataset 1](https://www.kaggle.com/datasets/thespacefreak/taylor-swift-spotify-data)
+[Kaggle Dataset 2](https://www.kaggle.com/datasets/jarredpriester/taylor-swift-spotify-dataset?select=taylor_swift_spotify.csv)
+[Spotify Definitions](https://developer.spotify.com/documentation/web-api/reference/get-several-audio-features)
 
 ## Important files
-R code file: 
-SQL code file: 
-Tableau file: 
+[R code file](https://github.com/aidanrogers02/Taylor-Swift-Spotify-Popularity-Analysis/blob/main/Taylor_Swift_RMD.Rmd)
+[SQL code file](https://github.com/aidanrogers02/Taylor-Swift-Spotify-Popularity-Analysis/blob/main/sql_taylor_swift.sql)
+[Tableau file](taylor_swift_analysis.twb) 
