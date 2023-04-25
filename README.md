@@ -98,7 +98,7 @@ For my analysis to find how the sonic qualities quantified by Spotify impacted t
 
 I started with some exploratory analysis of the Taylor Swift data in Excel to find some trends when it came to popularity. I wanted to see where I should look to find what influences the popularity of her albums. A quick exploratory analysis of a data set gives you an idea of where to go next to reach the answer to your initial guided questions, and it gives you time to get more comfortable with the data. 
 
-#### **Average Popularity Per Album**
+#### Average Popularity Per Album
 
 I first started this exploration by plotting the popularity of Taylor’s albums and putting them in the order of release date. I found this measure of popularity by averaging out the popularity of every song in each album.
 
@@ -170,46 +170,62 @@ Now that we have completed some basic exploratory analysis when it comes to the 
 
 When using scatter plots with linear regression lines I found that most of the different sonic qualities do not have much of a strong trend. If there were a strong trend between popularity and any of the other variables the trend line seen on the graph would go straight towards the upper right corner of the graph but this does not tend to happen.
 
-[Example with valence or something from R]
-[Tempo vs Popularity]
+#### Valence vs Popularity
 
-As you can see this plot does not show any real trend relating the variables of valence or tempo to popularity and this occurs for most of the sound qualities as you can see below.
+![Valence vs Popularity](/charts_graphs/R_pop_vs_valence.png)
 
-[Tempo vs Popularity]
+As you can see this plot does not show any real trend relating the variable of valence to popularity and this occurs for most of the sound qualities as you can see below, with tempo and energy.
+
+#### Tempo vs Popularity & Energy vs Popularity
+
+![Tempo vs Popularity](/charts_graphs/R_pop_vs_tempo.png)
+![Energy vs Popularity](/charts_graphs/R_pop_vs_energy.png)
 
 The only sonic qualities that really do seem to relate positively to popularity are two I wanted to look more closely at, acousticness and danceability. 
 
-[Acousticness vs Popularity in R]
+#### Acousticness vs Popularity
+
+![Acousticness vs Popularity in R](/charts_graphs/R_pop_vs_acoustic.png)
 
 As we can see from this graph acousticess seems to be very slightly positively correlated with popularity, which runs contrary to my hypothesis that acousticness would have a negative relation to popularity of Taylor Swift’s songs and albums. The trend line is still not strong enough to consider that acousticness and popularity are closely related but they certainly are not inversely related either. 
 
-[Loudness vs Popularity]
+#### Loudness vs Popularity
+
+![Loudness vs Popularity](/charts_graphs/R_pop_vs_loud.png)
 
 We were looking for which sonic qualities tend to be positively related to the popularity of Taylor Swift’s Music but it appears that we have found one that is decently inversely related. Loudness seems to be related to popularity in some way, but the louder a song is the less popular it is. This could be a key finding to keep in mind as songs being less loud might help them gain more popularity.  
 
-[Average Loudness Tableau]
+#### Average Loudness Per Album
 
-Looking at the average loudness of albums you can notice that the less loud albums do tend to be more popular than the louder albums. Though, looking at this graph it might appear that Folklore and Evermore should be two of Taylor’s most popular, but looking below we can see that they are only Taylor’s eighth and sixth most popular albums respectively
+![Average Loudness Per Album Tableau](/charts_graphs/Average_Loudness.png)
 
-[Ranked Popularity Tableau]
+Looking at the average loudness of albums you can notice that the less loud albums do tend to be more popular than the louder albums. Though, looking at this graph it might appear that Folklore and Evermore should be two of Taylor’s most popular, but looking below we can see that they are only Taylor’s eighth and sixth most popular albums respectively (notice how we are using the averages of popularity with outliers removed).
+
+![Ranked Popularity Tableau](/charts_graphs/Ranked_Popularity.png)
 
 So while loudness does have a relation with popularity it cannot really predict the most popular albums.
 
-Moving back to what attributes that are positively related to popularity we can take a look at how danceability is related to popularity.
+#### Danceability vs Popularity
 
-[Danceability vs Popularity in R]
+Moving back to what attributes that are positively related to popularity we can take a look at how danceability is related to popularity (some labels were added to show some examples of the most and least danceable songs).
+
+![Danceability vs Popularity in R](/charts_graphs/R_pop_vs_dance_w_points.png)
 
 When we look at the plot of danceability vs popularity above we see that the closest positive relation between popularity and any of the sonic qualities of Taylor’s songs comes from danceability. There is not a super strong relation but the trend line seems to indicate there may be a slight relation between the danceability and the popularity of Taylor’s songs.
 
+#### Average Danceabilty and Popularity & Median Danceability and Popularity
+
 If we dig deeper into this relation between popularity and danceability in Taylor’s songs we start to notice there appears to be some sort of connection. Such as the average and median danceability being highest in the albums where the average and median popularity are the highest. 
 
-[SQL showing average danceability and average popularity]
+![SQL showing average danceability and average popularity](/charts_graphs/avg_pop_avg_dance.PNG)
 
-[SQL showing median danceability and median popularity]
+![SQL showing median danceability and median popularity](/charts_graphs/med_pop_med_dance.PNG)
 
 Looking at these tables we do notice that the most danceable albums do seem to be the most popular, but the least danceable albums are not always the least popular. To look more closely at this relation let’s put it into a box and whisker plot to see a distribution of individual songs.
 
-[Box and Whisker plot]
+#### Danceability Distribution
+
+![Danceability Distribution Plot](/charts_graphs/Danceability_Box_Plot.png)
 
 As we see in the plot above, the most popular albums (1989, Lover, and Midnights) tend to have a majority of their songs over the median line of danceability across Taylor Swift’s albums. This might show that the secret ingredient in reaching the highest point of popularity for Taylor’s songs is how danceable they are, but once again these trends are not strong enough to be completely certain, nor does a lack of danceability necessarily reflect if an album will be unpopular seeing as how Taylor’s least popular albums are not her least danceable. 
 
@@ -217,7 +233,9 @@ As we see in the plot above, the most popular albums (1989, Lover, and Midnights
 
 After going through how all of the sonic qualities of Taylor Swift’s albums relate to their popularity I saw that there was no strong enough trend to really know what the real key to each of her album’s popularity was besides maybe danceability and quietness helping a little. Not having found what sonic quality strongly relates to the popularity of Taylor’s albums I wanted to try and find another key factor tied to her albums that did in fact relate strongly to popularity. And looking back to our exploratory analysis it looked like that key factor might just be the release date.
 
-[Release Date vs Popularity in R]
+#### Release Date vs Popularity
+
+![Release Date vs Popularity in R](/charts_graphs/release_date_vs_pop.png)
 
 Looking at this above chart it seems like we have found the strongest key element when it comes to one of Taylor’s songs. We had noticed before that release date seemed like a probable factor related to popularity, because although it is not a perfect measure the popularity of Taylor’s albums has generally increased over time. And as we noted earlier it does not necessarily mean that every subsequent album is more popular than the last, simply that Taylor’s later releases tend to be more popular than her earlier ones.
 
@@ -234,12 +252,11 @@ With this analysis we can see that Taylor Swift has built a place for herself as
 ## Share 
 With all of the preparation and analysis complete I put a brief summary of my key findings into a PowerPoint to make the results easily presentable. This way I could more quickly and easily communicate the results I had to any interested parties. You can find the link to the PowerPoint below.
 
-PowerPoint Link
-Google Slide Link
+PowerPoint Link: https://drive.google.com/file/d/1gnRda8p8otkFVySlm9vDFtNCEACyHW2I/view?usp=sharing
 
 Along with the PowerPoint I created a Tableau Dashboard as another summary of the data I found, but this one is interactive if the user wants to dig deeper into the results I found.
 
-Tableau Link
+Tableau Link: https://public.tableau.com/app/profile/aidanrogers02/viz/TaylorSwiftPopularityDataAnalysis/TaylorSwiftAlbumAnalysis3
 
 ## Act 
 To wrap up the analysis of Taylor Swift’s Spotify data I will end with a reminder of the key findings of our analysis and steps that I could take moving forward to learn even more.
@@ -256,9 +273,9 @@ To wrap up the analysis of Taylor Swift’s Spotify data I will end with a remin
 * Look further into popularity trends across Taylor Swift’s career
 
 ## References
-Kaggle dataset 1
-Kaggle dataset 2
-Spotify definitions
+Kaggle Dataset 1: 
+Kaggle Dataset 2: 
+Spotify Definitions
 
 ## Important files
 R code file: 
