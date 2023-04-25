@@ -100,19 +100,19 @@ I started with some exploratory analysis of the Taylor Swift data in Excel to fi
 
 I first started this exploration by plotting the popularity of Taylor’s albums and putting them in the order of release date. I found this measure of popularity by averaging out the popularity of every song in each album.
 
-[tableau bar graph of popularity averages] DONE
+![tableau bar graph of popularity averages](/charts_graphs/Popularity_w_outlier.png)
 
 As one can immediately notice there seems to be a general trend that the popularity of Taylor’s albums increase over time as the release dates become more recent, though there is a peak in popularity toward the middle of her discography with the albums reputation and Lover. This is an immediate sign that release date could very well be one of the contributing factors that impacts the popularity of Taylor Swift’s albums, but we will look more into this idea later.
 
 Next, I wanted to look at some more stats when it came to popularity itself, for example seeing the most popular and least popular song on each of Taylor’s albums to see the range of popularity that each album seems to bring. 
 
-[SQL most popular song on each album order by release_date] 
+![SQL most popular song on each album order by release_date](/charts_graphs/max_pop_song.PNG)
 
 With this SQL query we find that 1989, Taylor Swift’s 2014 release, has the most popular of the most popular songs. Taylor Swift’s original 2008 version of Fearless features the least popular of the most popular songs. 
 
 Next we look at the least popular song featured on each album.
 
-[SQL least popular song on each album order by release_date]
+![SQL least popular song on each album order by release_date](/charts_graphs/min_pop_album.PNG)
 
 With this query we find that Midnights, Taylor’s most recent release, has the most popular song from this list and seems to have a very small range of popularity for its songs, only having a range of 77 to 70 with its most popular and least popular songs. We also find that 1989, the album featuring Taylor Swift’s most popular song also features her least popular with a popularity of 0. This popularity of 0 is likely an outlier though so we will look further into this song that has such a low popularity. Other than the 0 popularity song featured on 1989 the next least popular spot goes once again to the 2008 version of Fearless.
 
