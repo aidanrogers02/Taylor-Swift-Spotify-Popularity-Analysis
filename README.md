@@ -66,10 +66,10 @@ My next step after initial questions was to prepare my data for processing and a
 * Data has inconsistent types in some places
 
 ### Steps Moving Forward 
-Trim white space from data 
-Include 3 missing albums manually from another Kaggle data set
-Make data for song names all string type
-Make all data for dates date type
+* Trim white space from data 
+* Include 3 missing albums manually from another Kaggle data set
+* Make data for song names all string type
+* Make all data for dates date type
 
 ## Process 
 After ensuring that the data was prepared I moved onto the processing phase. In the processing phase I decided what tools I was going to use moving forward in my analysis and data cleaning. Along with deciding what tools to use I cleaned my data and documented the process as I went to keep track of changes. Much of the data cleaning I did was performed in Excel, SQL, and R.
@@ -95,7 +95,7 @@ After ensuring that the data was prepared I moved onto the processing phase. In 
 * Rename columns to use in R
 * Split date values into year, month, day, and weekday to allow for working with these specific values in R
 
-Here is a preview of the data to give an idea of how it looks 
+Here is a preview of the data to give an idea of how it looks:
 
 ![Preview of Clean Data](/data/clean_data_snapshot.PNG)
 
