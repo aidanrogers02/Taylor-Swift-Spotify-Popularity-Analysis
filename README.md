@@ -2,6 +2,8 @@
 ###### By: Aidan Rogers
 ###### Date: 4/25/2023
 
+![Evermore Pictures](/charts_graphs/Evermore.png)
+
 View this analysis here as an article.
 
 ## Table of Contents
