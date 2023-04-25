@@ -7,7 +7,6 @@ View this analysis here as an article.
 ## Table of Contents
 * [Introduction](https://github.com/aidanrogers02/Taylor-Swift-Spotify-Popularity-Analysis/blob/main/README.md#introduction)
 * [Ask](https://github.com/aidanrogers02/Taylor-Swift-Spotify-Popularity-Analysis/blob/main/README.md#ask)
-  * Hi
 * [Prepare](https://github.com/aidanrogers02/Taylor-Swift-Spotify-Popularity-Analysis/blob/main/README.md#prepare)
 * [Process](https://github.com/aidanrogers02/Taylor-Swift-Spotify-Popularity-Analysis/blob/main/README.md#process)
 * [Analyze](https://github.com/aidanrogers02/Taylor-Swift-Spotify-Popularity-Analysis/blob/main/README.md#analyze)
@@ -88,7 +87,7 @@ After ensuring that the data was prepared I moved onto the processing phase. In 
 
 Here is a preview of the data to give an idea of how it looks 
 
-[Screenshot of Excel data]
+![Preview of Clean Data](/data/clean_data_snapshot.PNG)
 
 ## Analysis
 For this analysis I will specifically be trying to answer the guiding question of “How do the sonic qualities of Taylor Swift’s albums affect their popularity?” This guiding question gives us a goal to focus on and gives direction to the analysis. When you want to have a structured analysis that has more actionable insights, having a specific end goal in mind can be very useful.
