@@ -146,7 +146,7 @@ When we query for all songs in Taylor’s discography that have a popularity of 
 
 When we look at the minimum popularity song on each album once again this result seems much more in line with where the least popular song on 1989 would be.
 
-#### Median and Average Populartiy Per Album Without Outliers
+#### Median and Average Popularity Per Album Without Outliers
 
 ![SQL median and average popularity of songs w/o 0 pop](/charts_graphs/median_and_avg_pop.PNG)
 
