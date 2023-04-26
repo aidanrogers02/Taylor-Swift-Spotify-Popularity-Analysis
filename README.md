@@ -203,7 +203,7 @@ As we can see from this graph acousticess seems to be very slightly positively c
 
 ![Loudness vs Popularity](/charts_graphs/R_pop_vs_loud.png)
 
-We were looking for which sonic qualities tend to be positively related to the popularity of Taylor Swift’s Music but it appears that we have found one that is decently inversely related. Loudness seems to be related to popularity in some way, but the louder a song is the less popular it is. This could be a key finding to keep in mind as songs being less loud might help them gain more popularity.  
+We were looking for which sonic qualities tend to be positively related to the popularity of Taylor Swift’s music but it appears that we have found one that is decently inversely related. Loudness seems to be related to popularity in some way, but the louder a song is the less popular it is. This could be a key finding to keep in mind as songs being less loud might help them gain more popularity.  
 
 #### Average Loudness Per Album
 
@@ -223,7 +223,7 @@ Moving back to what attributes that are positively related to popularity we can 
 
 When we look at the plot of danceability vs popularity above we see that the closest positive relation between popularity and any of the sonic qualities of Taylor’s songs comes from danceability. There is not a super strong relation but the trend line seems to indicate there may be a slight relation between the danceability and the popularity of Taylor’s songs.
 
-#### Average Danceabilty and Popularity & Median Danceability and Popularity
+#### Average Danceability and Popularity & Median Danceability and Popularity
 
 If we dig deeper into this relation between popularity and danceability in Taylor’s songs we start to notice there appears to be some sort of connection. Such as the average and median danceability being highest in the albums where the average and median popularity are the highest. 
 
