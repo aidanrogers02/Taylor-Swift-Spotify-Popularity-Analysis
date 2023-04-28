@@ -4,7 +4,7 @@
 
 ![Evermore Pictures](/charts_graphs/Petrusich-TaylorSwift.webp)
 
-View this analysis here as an article.
+View this analysis [here](https://medium.com/@aidanrogers02/taylor-swift-spotify-popularity-analysis-3ebf8bcfc1f0) as an article.
 
 ## Table of Contents
 * [Introduction](https://github.com/aidanrogers02/Taylor-Swift-Spotify-Popularity-Analysis/blob/main/README.md#introduction)
